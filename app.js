@@ -39,16 +39,14 @@ app.use(require("connect-flash")());
 
 // secret word handling
 app.get("/secretWord", (req, res) => {
-  if (!req.session.secretWord) {
-    req.session.secretWord = "syzygy";
-  }
+  req.session.secretWord ||= "syzygy";
   res.locals.info = req.flash("info");
   res.locals.errors = req.flash("error");
   res.render("secretWord", { secretWord: req.session.secretWord });
 });
 
 app.post("/secretWord", (req, res) => {
-  if (req.body.secretWord.toUpperCase()[0] == "P") {
+  if (req.body.secretWord?.toLowerCase()?.startsWith("p")) {
     req.flash("error", "That word won't work!");
     req.flash("error", "You can't use words that start with p.");
   } else {
