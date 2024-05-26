@@ -1,7 +1,13 @@
 <header>
-    <h1 class="fs-1">The Secret Word EJS Application</h1>
+    <h1 class="fs-1">EJS Application</h1>
 </header>
 <hr />
+<% if (user) { %>
+    <p>User <%= user.name %> is logged on.</p>
+    <form method="POST" action="/sessions/logoff">
+    <button>Logoff</button>
+    </form>
+ <% } %>
 <% if (errors && errors.length) {
     errors.forEach((err) => { %>
       <p class="alert alert-danger">Error: <%= err %></p>
