@@ -1,9 +1,16 @@
 <%- include("partials/head.ejs") %>
 <%- include("partials/header.ejs") %>
-<% if (user) { %>
-    <a href="/secretWord">Click this link to view/change the secret word.</a>
-<% } else { %>
-    <a href="/sessions/logon">Click this link to logon.</a>
-    <a href="/sessions/register">Click this link to register.</a>
-<% } %>
+
+<div class="container">
+    <% if (user) { %>
+        <p class="mt-3">Welcome, <%= user.username %>!</p>
+        <a href="/secretWord" class="btn btn-primary">View/Change Secret Word</a>
+    <% } else { %>
+        <div class="mt-3">
+            <a href="/sessions/logon" class="btn btn-primary mr-2">Log In</a>
+            <a href="/sessions/register" class="btn btn-secondary">Register</a>
+        </div>
+    <% } %>
+</div>
+
 <%- include("partials/footer.ejs") %>

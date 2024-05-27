@@ -1,27 +1,29 @@
 <%- include("partials/head.ejs") %>
 <%- include("partials/header.ejs") %>
-<form method="POST">
-  <div>
-    <label name="name">Enter your name:</label>
-    <input name="name" />
-  </div>
-  <div>
-    <label name="email">Enter your email:</label>
-    <input name="email" />
-  </div>
-  <div>
-    <label name="password">Enter your password:</label>
-    <input type="password" name="password" />
-  </div>
-  <div>
-    <label name="password1">Confirm your password:</label>
-    <input type="password" name="password1" />
-  </div>
-  <div>
-    <button>Register</button>
-    <a href="/">
-      <button type="button">Cancel</button>
-    </a>
-  </div>
-</form>
+
+<div class="container mt-5">
+  <form method="POST" class="col-md-6 mx-auto">
+    <div class="form-group">
+      <label for="name">Enter your name:</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+      <label for="email">Enter your email:</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label for="password">Enter your password:</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+    </div>
+    <div class="form-group">
+      <label for="password1">Confirm your password:</label>
+      <input type="password" class="form-control" id="password1" name="password1" placeholder="Confirm your password">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Register</button>
+      <a href="/" class="btn btn-secondary">Cancel</a>
+    </div>
+  </form>
+</div>
+
 <%- include("partials/footer.ejs") %>
