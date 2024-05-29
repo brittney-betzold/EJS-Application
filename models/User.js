@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-// const jwt = require("jsonwebtoken");
+// const ValidationError = require("../utils/validationError");
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -37,22 +37,6 @@ UserSchema.pre("save", async function (next) {
     next(error);
   }
 });
-
-// UserSchema.methods.createJWT = function () {
-//   try {
-//     return jwt.sign(
-//       { userId: this._id, name: this.name },
-//       process.env.JWT_SECRET,
-//       {
-//         expiresIn: process.env.JWT_LIFETIME,
-//       }
-//     );
-//   } catch (error) {
-//     console.error("Error creating JWT:", error);
-//     throw new Error("Failed to create JWT token");
-//   }
-// };
-
 UserSchema.methods.comparePassword = async function (candidatePassword) {
   const isMatch = await bcrypt.compare(candidatePassword, this.password);
   return isMatch;
