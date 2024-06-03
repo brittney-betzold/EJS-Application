@@ -1,16 +1,34 @@
-<header>
-    <h1 class="fs-1">The Secret Word EJS Application</h1>
+<header class="text-center">
+    <h1 class="display-4">EJS Application</h1>
 </header>
 <hr />
-<% if (errors && errors.length) {
-    errors.forEach((err) => { %>
-      <p class="alert alert-danger">Error: <%= err %></p>
-<% }) } %>
-<% if (info && info.length) {
-    info.forEach((msg) => { %>
-      <p class="alert alert-success">Info: <%= msg %></p>
-<% }) } %>
+
+<% if (user) { %>
+    <div class="container mt-4">
+        <p class="lead">User <%= user.name %> is logged on.</p>
+        <form method="POST" action="/sessions/logoff">
+            <button type="submit" class="btn btn-danger">Logoff</button>
+        </form>
+    </div>
+<% } %>
+
+<% if (errors && errors.length) { %>
+    <div class="container mt-4">
+  
+            <p class="alert alert-danger"><%= errors %></p>
+  
+    </div>
+<% } %>
+
+<% if (info && info.length) { %>
+    <div class="container mt-4">
+        <% info.forEach((msg) => { %>
+            <p class="alert alert-success"><%= msg %></p>
+        <% }) %>
+    </div>
+<% } %>
+
 <% if ((errors && errors.length) || (info && info.length)) { %>
     <hr />
 <% } %>
- 
+
