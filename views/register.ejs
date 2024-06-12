@@ -25,13 +25,13 @@
       <a href="/" class="btn btn-secondary">Cancel</a>
     </div>
     <% if (errors && errors.length > 0) { %>
-      <div class="alert alert-danger">
-        <ul>
+    
+        <ul class = "alert alert-danger">
           <% errors.forEach(function(error) { %>
             <li><%= error %></li>
           <% }); %>
         </ul>
-      </div>
+    
     <% } %>
   </form>
 </div>

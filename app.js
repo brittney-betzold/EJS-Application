@@ -72,7 +72,8 @@ app.use("/secretWord", auth, secretWordRouter);
 app.use("/recipes", auth, recipes);
 
 app.get("/", (req, res) => {
-  res.render("index", { csrfToken: req.csrfToken(), user: req.user });
+  res.render("index");
+  // res.render("index", { user: req.user });
 });
 
 // 404 handler

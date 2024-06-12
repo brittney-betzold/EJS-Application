@@ -9,16 +9,13 @@
         <form action="/sessions/logoff" method="POST" style="display:inline;">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <button type="submit" class="btn btn-danger">Log Off</button>
-          </form>
-          
+        </form>
     </div>
 <% } %>
 
 <% if (errors && errors.length) { %>
     <div class="container mt-4">
-  
-            <p class="alert alert-danger"><%= errors %></p>
-  
+        <p class="alert alert-danger"><%= errors %></p>
     </div>
 <% } %>
 
@@ -33,4 +30,5 @@
 <% if ((errors && errors.length) || (info && info.length)) { %>
     <hr />
 <% } %>
+
 

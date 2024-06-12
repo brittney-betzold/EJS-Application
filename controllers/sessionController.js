@@ -27,7 +27,7 @@ const registerDo = async (req, res) => {
   }
 };
 
-const logoff = (req, res) => {
+const logoff = (req, res, next) => {
   req.logout((err) => {
     if (err) {
       return next(err);

@@ -7,7 +7,6 @@
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Custom CSS for form layout */
     .ingredient {
       margin-bottom: 10px;
     }
@@ -30,25 +29,24 @@
       </div>
       
       <div id="ingredients">
-        <% if (recipe && recipe.ingredients.length > 0) { %>
+        <% if (recipe && recipe.ingredients.length) { %>
           <% recipe.ingredients.forEach((ingredient, index) => { %>
             <div class="ingredient">
-              <label for="ingredientName_<%= index %>">Ingredient Name:</label>
-              <input type="text" class="form-control" id="ingredientName_<%= index %>" name="ingredients[<%= index %>][ingredientName]" value="<%= ingredient.ingredientName %>" required>
-              <label for="quantity_<%= index %>">Quantity:</label>
-              <input type="text" class="form-control" id="quantity_<%= index %>" name="ingredients[<%= index %>][quantity]" value="<%= ingredient.quantity %>" required>
+              <label for="ingredientName_<%= ingredient._id %>">Ingredient Name:</label>
+              <input type="text" class="form-control" id="ingredientName_<%= ingredient._id %>" name="ingredients[<%= ingredient._id %>][ingredientName]" value="<%= ingredient.ingredientName %>" required>
+              <label for="quantity_<%= ingredient._id %>">Quantity:</label>
+              <input type="text" class="form-control" id="quantity_<%= ingredient._id %>" name="ingredients[<%= ingredient._id %>][quantity]" value="<%= ingredient.quantity %>" required>
               <button type="button" class="btn btn-sm btn-danger" onclick="removeIngredient(this)">Remove</button>
             </div>
           <% }); %>
-        <% } else { %>
-          <div class="ingredient">
-            <label for="ingredientName_0">Ingredient Name:</label>
-            <input type="text" class="form-control" id="ingredientName_0" name="ingredients[0][ingredientName]" required>
-            <label for="quantity_0">Quantity:</label>
-            <input type="text" class="form-control" id="quantity_0" name="ingredients[0][quantity]" required>
-            <button type="button" class="btn btn-sm btn-danger" onclick="removeIngredient(this)">Remove</button>
-          </div>
         <% } %>
+        <div class="ingredient" key="0">
+          <label for="ingredientName_0">Ingredient Name:</label>
+          <input type="text" class="form-control" id="ingredientName_0" name="ingredients[0][ingredientName]" required>
+          <label for="quantity_0">Quantity:</label>
+          <input type="text" class="form-control" id="quantity_0" name="ingredients[0][quantity]" required>
+          <button type="button" class="btn btn-sm btn-danger" onclick="removeIngredient(this)">Remove</button>
+        </div>
       </div>
       <button type="button" class="btn btn-sm btn-primary mb-3" onclick="addIngredient()">Add Ingredient</button><br>
       
@@ -77,4 +75,11 @@
     </form>
   </div>
 
-  <!-- Bootstrap JS
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JS -->
+  <script>
+    // Add your custom JavaScript here
+  </script>
+</body>
+</html>

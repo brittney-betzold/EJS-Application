@@ -1,6 +1,5 @@
 const express = require("express");
 const passport = require("passport");
-const csrf = require("csurf");
 const csrfProtection = require("../middleware/csrfProtection");
 
 const router = express.Router();
@@ -27,6 +26,6 @@ router
       failureFlash: true,
     })
   );
-router.route("/logoff").post(logoff); // No CSRF protection here
+router.route("/logoff").post(csrfProtection, logoff); // No CSRF protection here
 
 module.exports = router;
