@@ -6,17 +6,16 @@
 <% if (user) { %>
     <div class="container mt-4">
         <p class="lead">User <%= user.name %> is logged on.</p>
-        <form method="POST" action="/sessions/logoff">
-            <button type="submit" class="btn btn-danger">Logoff</button>
+        <form action="/sessions/logoff" method="POST" style="display:inline;">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button type="submit" class="btn btn-danger">Log Off</button>
         </form>
     </div>
 <% } %>
 
 <% if (errors && errors.length) { %>
     <div class="container mt-4">
-  
-            <p class="alert alert-danger"><%= errors %></p>
-  
+        <p class="alert alert-danger"><%= errors %></p>
     </div>
 <% } %>
 
@@ -31,4 +30,5 @@
 <% if ((errors && errors.length) || (info && info.length)) { %>
     <hr />
 <% } %>
+
 
